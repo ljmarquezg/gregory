@@ -15,12 +15,12 @@ DashboardAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
-<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> 
   <meta charset="<?= Yii::$app->charset ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--script src="/js/ajax-jquery-1.11.0.min.js"></script>
   <script src='/js/jquery-ui1.12.1.min.js'</script-->
   <script src="/js/jquery.min.js"></script>
+
   <script type="text/javascript" src="/js/cropbox.js"></script>
   <?= Html::csrfMetaTags() ?>
   <title><?= Html::encode($this->title) ?></title>
@@ -243,7 +243,7 @@ DashboardAsset::register($this);
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <img src="/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                  <!--span class="hidden-xs"><? /*php echo Yii::$app->user->identity->firstname;   */?> </span-->
+                  <span class="hidden-xs"><?php echo Yii::$app->user->identity->firstname;   ?> </span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
@@ -303,15 +303,15 @@ DashboardAsset::register($this);
           <!-- sidebar: style can be found in sidebar.less -->
           <section class="sidebar">
             <!-- Sidebar user panel -->
-            <!--div class="user-panel">
+            <div class="user-panel">
               <div class="pull-left image">
                 <img src="/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
               </div>
               <div class="pull-left info">
-                <p> <? /*php echo Yii::$app->user->identity->firstname. ' '. Yii::$app->user->identity->lastname; */?></p>
+                <p> <?php echo Yii::$app->user->identity->firstname. ' '. Yii::$app->user->identity->lastname; ?></p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
               </div>
-            </div-->
+            </div>
             <!-- search form -->
       <!--form action="#" method="get" class="sidebar-form">
         <div class="input-group">
@@ -331,10 +331,10 @@ DashboardAsset::register($this);
       }
       ?-->
       <ul class="sidebar-menu">
-        <!--li class="header">MAIN NAVIGATION</li-->
+        <li class="header">MAIN NAVIGATION</li>
         <li class="active treeview">
           <a href="/">
-            <i class="fa ion ion-ios-speedometer-outline"></i> <span>Dashboard</span>
+            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             <!--span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span-->
@@ -344,24 +344,25 @@ DashboardAsset::register($this);
             <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
           </ul-->
         </li>
-        <li class="treeview active">
+        <li class="treeview">
           <a href="#">
-            <i class="fa ion ion-clipboard"></i>
-            <span>Guest List</span>
+            <i class="fa ion ion-android-people"></i>
+            <span>Customers</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
+            <!--span class="pull-right-container">
+              <span class="label label-primary pull-right">4</span>
+            </span-->
           </a>
-          <ul class="treeview-menu menu-open" style="display:block">
-            <li><a href="/guest/create/"><i class="fa fa-angle-right"></i>New customer</a></li>
-            <!--li><a href="/customer-branch/create/"><i class="fa fa-angle-right"></i>Create branch</a></li-->
+          <ul class="treeview-menu">
+            <li><a href="/customer/create/"><i class="fa fa-angle-right"></i>Create customer</a></li>
+            <li><a href="/customer-branch/create/"><i class="fa fa-angle-right"></i>Create branch</a></li>
             <li class="divider"></li>
-            <li><a href="/guest/"><i class="fa fa-angle-right"></i>All Guests</a></li>
-            <li><a href="/guest/?GuestSearch[guest_status]=1"><i class="fa fa-angle-right"></i>Unconfirmed</a></li>
-            <li><a href="/guest/?GuestSearch[guest_status]=2"><i class="fa fa-angle-right"></i>Confirmed</a></li>
-            <li><a href="/guest/?GuestSearch[guest_status]=3"><small class="label bg-red">-</small>Unconfirmed</a></li>
-            <li><a href="/guest/?GuestSearch[guest_status]=4"><i class="fa fa-angle-right"></i>Declined</a></li>
-            <li><a href="/customer-branch/"><i class="fa fa-angle-right"></i>Arrived</a></li>
+            <li><a href="/customer/"><i class="fa fa-angle-right"></i>Customers list</a></li>
+            <li><a href="/customer-branch/"><i class="fa fa-angle-right"></i>Branches list</a></li>
+            <!--li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
+            <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li-->
             </ul>
           </li>
 
@@ -672,7 +673,7 @@ DashboardAsset::register($this);
   <script src="/js/bootstrap.js"></script>
   <?php $this->endBody() ?>
   <!-- Smooth scroll-->
-  <script>/*
+  <script>
     $('a[href^="#"]').on('click',function (e) {
       e.preventDefault();
       var target = this.hash;
@@ -686,7 +687,7 @@ DashboardAsset::register($this);
 
       });
     });
-  */
+
   </script>
 
         
@@ -746,3 +747,4 @@ DashboardAsset::register($this);
 
 
 <?php $this->endPage() ?>
+    

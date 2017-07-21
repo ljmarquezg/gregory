@@ -60,11 +60,13 @@ $dataStatus = ArrayHelper::map(GuestStatus::find()->all(), 'id_guest_status', 'd
     ]);?>
 
 
-    <?= $form->field($model, 'token')->textInput(['maxlength' => true]) ?>
+    <!--?= $form->field($model, 'token')->textInput(['maxlength' => true]) ?-->
 
-    <?= $form->field($model, 'first_name')->textInput(['maxlength' => true]) ?>
+     <?= $form->field($model, 'guest_type')->dropDownList([ 'Ms.' => 'Ms.', 'Mrs.' => 'Mrs.', 'Mr.' => 'Mr.', 'Dr.' => 'Dr.', 'Miss' => 'Miss', 'Prof.' => 'Prof.', 'Rev.' => 'Rev.', 'The Hon.' => 'The Hon.', ], ['prompt' => '']) ?>
 
-    <?= $form->field($model, 'middle_name')->textInput(['maxlength' => true]) ?>
+     <?= $form->field($model, 'first_name')->textInput(['maxlength' => true]) ?>
+
+    <!--?= $form->field($model, 'middle_name')->textInput(['maxlength' => true]) ?-->
 
     <?= $form->field($model, 'last_name')->textInput(['maxlength' => true]) ?>
 
@@ -76,7 +78,7 @@ $dataStatus = ArrayHelper::map(GuestStatus::find()->all(), 'id_guest_status', 'd
 
     <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'guest_type')->dropDownList([ 'Ms.' => 'Ms.', 'Mrs.' => 'Mrs.', 'Mr.' => 'Mr.', 'Dr.' => 'Dr.', 'Miss' => 'Miss', 'Prof.' => 'Prof.', 'Rev.' => 'Rev.', 'The Hon.' => 'The Hon.', ], ['prompt' => '']) ?>
+   
 
     <?= $form->field($model, 'gender')->widget(Select2::classname(), [
     'data' => $dataGender,
@@ -91,7 +93,7 @@ $dataStatus = ArrayHelper::map(GuestStatus::find()->all(), 'id_guest_status', 'd
 
     <?= $form->field($model, 'guest_status')->widget(Select2::classname(), [
     'data' => $dataStatus,
-    'options' => ['placeholder' => 'Select Gender ...'],
+    'options' => ['placeholder' => 'Select status ...'],
     'pluginOptions' => [
         'allowClear' => true,
         'value' => 1,
